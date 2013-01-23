@@ -17,16 +17,20 @@ Usage
 var Animal = function () {};
 
 _.extend(Animal.prototype, {
+  name: 'Chupacabra'
   sound: 'roarmeowbarkmoo',
   sing: function () {
-  alert(Array(5).join(this.sound));
+    alert(this.name + ' says ' + Array(5).join(this.sound));
+  }
 });
 
 var Dog = _.inherit(Animal, {
+  name: 'Gunner',
   sound: 'woof'
 });
 
-var Dog = _.inherit(Animal, {
+var Cat = _.inherit(Animal, {
+  name: 'Mittens',
   sound: 'meow'
 });
 
