@@ -1,7 +1,7 @@
 underscore-inherit
 ==================
 
-This underscore mixin adds constructor extensibility.
+Add constructor extensibility to Underscore.js.
 
 Install
 -------
