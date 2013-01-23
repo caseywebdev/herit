@@ -1,0 +1,8 @@
+{
+  "name": "underscore-inherit",
+  "version": "0.0.1",
+  "author": "Casey Foster <c@sey.me>",
+  "devDependencies": {
+    "underscore": "x"
+  }
+}
