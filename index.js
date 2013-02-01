@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   // Browser and Node.js friendly
@@ -7,26 +7,26 @@
 
   // Define the mixin
   _.mixin({
-    inherit: function (Parent, proto, static) {
+    inherit: function (Parent, protoProps, staticProps) {
 
       // `Child` is the passed in `constructor` proto property
       // or a default function that uses `Parent`'s constructor
       var Child =
-        proto && _.has(proto, 'constructor') ?
-        proto.constructor :
+        protoProps && _.has(protoProps, 'constructor') ?
+        protoProps.constructor :
         function () { return Parent.apply(this, arguments); };
 
-      // `Dummy` is a dummy function to ensure `Parent.constructor`
+      // `Dummy` is a dummy constructor to ensure `Parent.constructor`
       // isn't actually called as it could have unintended
       // side effects
-      function Dummy() { this.constructor = Child; };
+      var Dummy = function () { this.constructor = Child; };
 
-      // Pass on convenience `__super__` and `static` properties
-      _.extend(Child, Parent, {__super__: Parent.prototype}, static);
+      // Pass on static properties
+      _.extend(Child, Parent, staticProps);
 
-      // Set up inheritance and merge `proto` properties
+      // Set up inheritance and merge prototype properties
       Dummy.prototype = Parent.prototype;
-      Child.prototype = _.extend(new Dummy, proto);
+      Child.prototype = _.extend(new Dummy(), protoProps);
 
       // Return the finished constructor
       return Child;
