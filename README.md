@@ -17,7 +17,7 @@ Usage
 var Animal = function () {};
 
 _.extend(Animal.prototype, {
-  name: 'Chupacabra'
+  name: 'Chupacabra',
   sound: 'roarmeowbarkmoo',
   sing: function () {
     alert(this.name + ' says ' + Array(5).join(this.sound));
