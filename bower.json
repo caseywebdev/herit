@@ -1,6 +1,6 @@
 {
   "name": "underscore-inherit",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "underscore-inherit.js",
   "dependencies": {
     "underscore": "x"
