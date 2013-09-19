@@ -7,7 +7,23 @@
 
   // Define the mixin
   _.mixin({
-    inherit: function (Parent, protoProps, staticProps) {
+    inherit: function () {
+      var protoProps;
+      var staticProps;
+      var Parent = _.reduce(arguments, function (Parent, arg) {
+        if (_.isFunction(arg)) {
+          if (!Parent) return arg;
+          return _.inherit(arg, {constructor: Parent});
+        }
+        if (_.isObject(arg)) {
+          if (!protoProps) {
+            protoProps = arg;
+          } else if (!staticProps) {
+            staticProps = arg;
+          }
+        }
+        return Parent;
+      }, null) || function () {};
 
       // `Child` is the passed in `constructor` proto property
       // or a default function that uses `Parent`'s constructor

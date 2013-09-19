@@ -14,9 +14,7 @@ Usage
 -----
 
 ```js
-var Animal = function () {};
-
-_.extend(Animal.prototype, {
+var Animal = _.inherit({
   name: 'Chupacabra',
   sound: 'roarmeowbarkmoo',
   sing: function () {
@@ -24,10 +22,12 @@ _.extend(Animal.prototype, {
   }
 });
 
-var Dog = _.inherit(Animal, {
+var HardWorker = _.inherit();
+
+var Dog = _.inherit(Animal, HardWorker, {
   name: 'Gunner',
   sound: 'woof'
-});
+}, {staticProp: 'hello'});
 
 var Cat = _.inherit(Animal, {
   name: 'Mittens',
@@ -35,6 +35,14 @@ var Cat = _.inherit(Animal, {
 });
 
 (new Animal()).sing();
-(new Dog()).sing();
 (new Cat()).sing();
+(new Dog()).sing();
+
+// (new Cat) instanceof Animal === true
+// (new Cat) instanceof Cat === true
+
+// Dog.staticProp === true
+// (new Dog) instanceof Animal === true
+// (new Dog) instanceof HardWorker === true
+// (new Dog) instanceof Dog === true
 ```
