@@ -1,6 +1,6 @@
 {
   "name": "underscore-inherit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Casey Foster <c@sey.me>",
   "main": "underscore-inherit",
   "repository": {
@@ -8,6 +8,12 @@
     "url": "https://github.com/caseywebdev/underscore-inherit"
   },
   "devDependencies": {
-    "underscore": "x"
+    "chai": "x",
+    "mocha": "x",
+    "underscore": "x",
+    "watchy": "x"
+  },
+  "scripts": {
+    "test": "make test"
   }
 }

@@ -1,6 +1,8 @@
 underscore-inherit
 ==================
 
+[![Build Status](https://secure.travis-ci.org/caseywebdev/underscore-inherit.png)](http://travis-ci.org/caseywebdev/underscore-inherit)
+
 Add constructor extensibility to Underscore.js.
 
 Install

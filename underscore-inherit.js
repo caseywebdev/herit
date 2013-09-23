@@ -5,25 +5,20 @@
   var node = typeof window === 'undefined';
   var _ = node ? require('underscore') : window._;
 
+  var slice = [].slice;
+
   // Define the mixin
   _.mixin({
     inherit: function () {
-      var protoProps;
-      var staticProps;
-      var Parent = _.reduce(arguments, function (Parent, arg) {
-        if (_.isFunction(arg)) {
-          if (!Parent) return arg;
-          return _.inherit(arg, {constructor: Parent});
-        }
-        if (_.isObject(arg)) {
-          if (!protoProps) {
-            protoProps = arg;
-          } else if (!staticProps) {
-            staticProps = arg;
-          }
-        }
-        return Parent;
-      }, null) || function () {};
+      var args = slice.call(arguments);
+      var Parent;
+      while (_.isFunction(args[0])) {
+        var arg = args.shift();
+        Parent = Parent ? _.inherit(arg, {constructor: Parent}) : arg;
+      }
+      if (!Parent) Parent = function () {};
+      var protoProps = args[0];
+      var staticProps = args[1];
 
       // `Child` is the passed in `constructor` proto property
       // or a default function that uses `Parent`'s constructor
