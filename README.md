@@ -1,19 +1,16 @@
-underscore-inherit
-==================
+# underscore-inherit
 
 [![Build Status](https://secure.travis-ci.org/caseywebdev/underscore-inherit.png)](http://travis-ci.org/caseywebdev/underscore-inherit)
 
 Add constructor extensibility to Underscore.js.
 
-Install
--------
+## Install
 
 In the browser, simply include the script on the page (after `_` is defined).
 
 In Node, all you need to do is `require('underscore-inherit')`.
 
-Usage
------
+## Usage
 
 ```js
 var Animal = _.inherit({
