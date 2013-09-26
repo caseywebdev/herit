@@ -1,19 +1,20 @@
-# underscore-inherit
+# herit
 
-[![Build Status](https://secure.travis-ci.org/caseywebdev/underscore-inherit.png)](http://travis-ci.org/caseywebdev/underscore-inherit)
+[![Build Status](https://secure.travis-ci.org/caseywebdev/herit.png)](http://travis-ci.org/caseywebdev/herit)
 
-Add constructor extensibility to Underscore.js.
+Easy to use JavaScript "Class" inheritance with support for "instance" and
+"static" properties.
 
 ## Install
 
-In the browser, simply include the script on the page (after `_` is defined).
+In the browser, simply include the script on the page.
 
-In Node, all you need to do is `require('underscore-inherit')`.
+In Node, all you need to do is `var herit = require('herit')`.
 
 ## Usage
 
 ```js
-var Animal = _.inherit({
+var Animal = herit({
   name: 'Chupacabra',
   sound: 'roarmeowbarkmoo',
   sing: function () {
@@ -21,14 +22,14 @@ var Animal = _.inherit({
   }
 });
 
-var HardWorker = _.inherit();
+var HardWorker = herit();
 
-var Dog = _.inherit(Animal, HardWorker, {
+var Dog = herit(Animal, HardWorker, {
   name: 'Gunner',
   sound: 'woof'
 }, {staticProp: 'hello'});
 
-var Cat = _.inherit(Animal, {
+var Cat = herit(Animal, {
   name: 'Mittens',
   sound: 'meow'
 });

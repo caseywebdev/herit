@@ -4,7 +4,7 @@ WATCHY=$(BIN)watchy
 TEST=$(MOCHA) --colors --recursive -R spec
 
 test-w:
-	NODE_ENV=test $(WATCHY) -w test,underscore-inherit.js -- $(TEST)
+	NODE_ENV=test $(WATCHY) -w test,herit.js -- $(TEST)
 
 test:
 	NODE_ENV=test $(TEST)

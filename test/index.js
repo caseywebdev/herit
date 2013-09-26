@@ -1,9 +1,8 @@
-var _ = require('underscore');
-require('..');
+var herit = require('..');
 var expect = require('chai').expect;
 
 describe('A simple "class"', function () {
-  var Klass = _.inherit({
+  var Klass = herit({
     constructor: function () { this.instanceProp = 'a'; },
     protoProp: 'b'
   }, {
@@ -36,13 +35,13 @@ describe('A simple "class"', function () {
 });
 
 describe('Single inheritance', function () {
-  var KlassA = _.inherit({
+  var KlassA = herit({
     aProtoMethod: function () {}
   }, {
     aStaticMethod: function () {}
   });
 
-  var KlassB = _.inherit(KlassA);
+  var KlassB = herit(KlassA);
 
   it('works with instanceof', function () {
     expect(new KlassB()).to.be.instanceOf(KlassA);
@@ -58,22 +57,22 @@ describe('Single inheritance', function () {
 });
 
 describe('Multiple inheritance', function () {
-  var KlassA = _.inherit({
+  var KlassA = herit({
     theProtoMethod: function () {}
   });
 
-  var KlassB = _.inherit({
+  var KlassB = herit({
     theProtoMethod: function () {}
   });
 
-  var KlassC = _.inherit(KlassA, KlassB);
+  var KlassC = herit(KlassA, KlassB);
 
   it('works with instanceof', function () {
     expect(new KlassC()).to.be.instanceOf(KlassA).and.instanceOf(KlassB);
   });
 
   it("inherits the most recent parent class's prototype methods", function () {
-    expect(KlassB.prototype).to.have
-      .property('theProtoMethod', KlassB.theProtoMethod);
+    expect(KlassC.prototype).to.have
+      .property('theProtoMethod', KlassB.prototype.theProtoMethod);
   });
 });
