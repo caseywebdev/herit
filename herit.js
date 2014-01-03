@@ -1,11 +1,7 @@
 (function (root, factory) {
-  if (typeof root.define === 'function' && root.define.amd) {
-    root.define([], factory);
-  } else if (typeof exports !== 'undefined') {
-    module.exports = factory();
-  } else {
-    root.herit = factory();
-  }
+  if (typeof define === 'function' && define.amd) define([], factory);
+  else if (typeof exports !== 'undefined') module.exports = factory();
+  else root.herit = factory();
 })(this, function () {
   'use strict';
 
