@@ -1,6 +1,6 @@
 (function (root, factory) {
   if (typeof root.define === 'function' && root.define.amd) {
-    root.define('herit', [], factory);
+    root.define([], factory);
   } else if (typeof exports !== 'undefined') {
     module.exports = factory();
   } else {
