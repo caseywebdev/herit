@@ -1,4 +1,8 @@
-(function () {
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) define('herit', [], factory);
+  else if (typeof exports !== 'undefined') module.exports = factory();
+  else root.herit = factory();
+})(this, function () {
   'use strict';
 
   // Browser and Node.js friendly
@@ -55,5 +59,5 @@
     return Child;
   };
 
-  node ? module.exports = herit : window.herit = herit;
-})();
+  return herit;
+});
