@@ -1,12 +1,13 @@
 (function (root, factory) {
-  if (typeof define === 'function' && define.amd) define('herit', [], factory);
-  else if (typeof exports !== 'undefined') module.exports = factory();
-  else root.herit = factory();
+  if (typeof root.define === 'function' && root.define.amd) {
+    root.define('herit', [], factory);
+  } else if (typeof exports !== 'undefined') {
+    module.exports = factory();
+  } else {
+    root.herit = factory();
+  }
 })(this, function () {
   'use strict';
-
-  // Browser and Node.js friendly
-  var node = typeof window === 'undefined';
 
   var extend = function (objA) {
     for (var i = 1, l = arguments.length; i < l; ++i) {
