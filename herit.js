@@ -32,7 +32,7 @@
       function () { return Parent.apply(this, arguments); };
 
     // Use Object.create if it's available.
-    if (false && typeof Object.create === 'function') {
+    if (herit.useObjectCreate) {
       Child.prototype = Object.create(Parent.prototype);
 
     // Otherwise use the workaround.
@@ -55,6 +55,8 @@
     // Return the finished constructor.
     return Child;
   };
+
+  herit.useObjectCreate = Object.hasOwnProperty('create');
 
   return herit;
 });
