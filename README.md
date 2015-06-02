@@ -34,14 +34,14 @@ var Cat = herit(Animal, {
   sound: 'meow'
 });
 
-(new Animal()).sing();
-(new Cat()).sing();
-(new Dog()).sing();
+(new Animal()).sing(); // alert('Chupacabra says roarmeowbarkmooroarmeowbarkmooroarmeowbarkmooroarmeowbarkmooroarmeowbarkmoo')
+(new Cat()).sing(); // alert('Mittens says meow')
+(new Dog()).sing(); // alert('Gunner says woof')
 
 // (new Cat) instanceof Animal === true
 // (new Cat) instanceof Cat === true
 
-// Dog.staticProp === true
+// Dog.staticProp === 'hello'
 // (new Dog) instanceof Animal === true
 // (new Dog) instanceof HardWorker === true
 // (new Dog) instanceof Dog === true
